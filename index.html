@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahad Elahi Khan - Web Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styles */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ecf0f1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Welcome Section */
+        #welcome-section {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .welcome-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        #welcome-section h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .welcome-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-tile {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .project-description {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #2980b9;
+        }
+
+        /* About Section */
+        #about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: #ecf0f1;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 5rem 2rem;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            #welcome-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .welcome-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .about-image {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            #welcome-section {
+                padding: 1rem;
+            }
+
+            #welcome-section h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .welcome-description {
+                font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .project-tile {
+                margin: 0;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .about-image {
+                width: 150px;
+                height: 150px;
+                font-size: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 0.5rem;
+            }
+
+            .skill-item {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            #projects, #about, #contact {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Fahad Elahi Khan</div>
+            <ul class="nav-links">
+                <li><a href="#welcome-section">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section id="welcome-section">
+        <div class="welcome-content">
+            <h1>Hi, I'm Fahad Elahi Khan</h1>
+            <p class="welcome-subtitle">Aspiring Mechanical Engineer | Python Developer | CAD Model Designer | Technical Content Creator</p>
+            <p class="welcome-description">
+                Pioneering the Intersection of Mechanical Engineering, Advanced Technologies, and Innovative Research.
+            </p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="projects-container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-tile">
+                    <div class="project-image">🗳️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A project to build a survey form to colect data from my users.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Deployment</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fahadelahikhan/Professional-Survey-Form" class="project-link">Code</a>
+                            <a href="https://fahadelahikhan.github.io/Professional-Survey-Form/" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-tile">
+                    <div class="project-image">🎗️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Marie Curie Tribute Page</h3>
+                        <p class="project-description">
+                            A project to build a tribute page for a subject of my choosing, fictional or real.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Deployment</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fahadelahikhan/Marie-Curie-Tribute-Page" class="project-link">Code</a>
+                            <a href="https://fahadelahikhan.github.io/Marie-Curie-Tribute-Page/" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-tile">
+                    <div class="project-image">📑</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Data Analytics Dashboard</h3>
+                        <p class="project-description">
+                            A projcet to build a technical documentation page to serve as instruction or reference for a topic.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Deployment</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fahadelahikhan/Python-Programming-Documentation" class="project-link">Code</a>
+                            <a href="https://fahadelahikhan.github.io/Python-Programming-Documentation/" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-tile">
+                    <div class="project-image">🗟</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interactive Game Platform</h3>
+                        <p class="project-description">
+                            A project to build a product landing page to market a product of my choice.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Deployment</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fahadelahikhan/CloudSync-Pro---Product-Landing-Page" class="project-link">Code</a>
+                            <a href="https://fahadelahikhan.github.io/CloudSync-Pro---Product-Landing-Page/" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image">👨🏻‍💻</div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p class="about-text">
+Harnessing advanced computational tools such as SolidWorks, AutoCAD, ANSYS, alongside Python and MATLAB, I tackle complex engineering challenges and systematically craft innovative solutions. My approach is deeply rooted in a solution-driven mindset: when faced with unfamiliar challenges, I apply thorough research, logical problem-solving, and continuous knowledge acquisition to identify and implement effective solutions.
+                </p>
+                <p class="about-text">
+I am passionate about the interdisciplinary integration of technology, continuously learning and collaborating across domains to push the boundaries of what engineering can achieve. My goal is to bridge theoretical concepts with real-world applications, creating impactful solutions that advance both academic and practical engineering fields.
+I seek meaningful connections with academic researchers, technology innovators, and industry professionals committed to expanding engineering frontiers. Open to research collaborations, mentorship opportunities, and transformative discussions that generate innovative technological solutions.
+                </p>
+                <div class="skills-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">SolidWorks</div>
+                    <div class="skill-item">Ansys</div>
+                    <div class="skill-item">MATLAB</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Autodesk Fusion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2 class="section-title" style="color: white;">Let's Work Together</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                I'm always interested in new opportunities and collaborations. 
+                Let's connect and discuss how we can bring your ideas to life!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:khanfahadelahi@gmail.com" class="contact-link">Email Me</a>
+                <a href="https://github.com/fahadelahikhan" id="profile-link" target="_blank" class="contact-link">GitHub</a>
+                <a href="https://linkedin.com/in/fahadelahikhan" class="contact-link">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
